@@ -4,8 +4,8 @@ using System.Numerics;
 
 namespace NEos
 {
-    using Cryptography.Internal;
-    
+    using Cryptography;
+
     public static class ByteArrayExtension
     {
         private static readonly byte[] ZeroBuf = new byte[] { 0 };

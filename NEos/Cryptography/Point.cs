@@ -208,7 +208,7 @@ namespace NEos.Cryptography
             return r;
         }
 
-        private sbyte[] WindowNaf(sbyte width, BigInteger k)
+        private static sbyte[] WindowNaf(sbyte width, BigInteger k)
         {
             sbyte[] wnaf = new sbyte[k.GetBitCount() + 1];
             short pow2wB = (short)(1 << width);

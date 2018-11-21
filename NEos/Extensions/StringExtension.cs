@@ -2,7 +2,7 @@
 
 namespace NEos
 {
-    using Cryptography.Internal;
+    using Cryptography;
 
     public static class StringExtension
     {
