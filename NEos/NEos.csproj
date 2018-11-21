@@ -13,4 +13,10 @@
     <RepositoryUrl>https://github.com/BitsumFoundation/NEos.git</RepositoryUrl>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Cryptography\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Exceptions\" />
+  </ItemGroup>
+
 </Project>
