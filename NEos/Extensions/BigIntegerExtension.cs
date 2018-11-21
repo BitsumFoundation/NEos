@@ -4,14 +4,50 @@ namespace NEos
 {
     public static class BigIntegerExtension
     {
-        public static int GetBitCount(this BigInteger i)
+        public static int GetBitCount(this BigInteger value)
         {
-            byte[] b = i.ToByteArray();
+            byte[] b = value.ToByteArray();
 
-            return (b.Length - 1) * 8 + BitLen(i.Sign > 0 ? b[b.Length - 1] : 255 - b[b.Length - 1]);
+            return (b.Length - 1) * 8 + BitLen(value.Sign > 0 ? b[b.Length - 1] : 255 - b[b.Length - 1]);
         }
 
+        public static bool TestBit(this BigInteger value, int index)
+        {
+            return (value & (BigInteger.One << index)) > BigInteger.Zero;
+        }
 
+        public static BigInteger Mod(this BigInteger x, BigInteger y)
+        {
+            x %= y;
+            if (x.Sign < 0) x += y;
+
+            return x;
+        }
+
+        public static BigInteger ModInverse(this BigInteger a, BigInteger n)
+        {
+            BigInteger i = n, v = 0, d = 1;
+
+            while (a > 0)
+            {
+                BigInteger t = i / a, x = a;
+                a = i % x;
+                i = x;
+                x = d;
+                d = v - t * x;
+                v = x;
+            }
+
+            v %= n;
+            if (v < 0) v = (v + n) % n;
+
+            return v;
+        }
+
+        public static byte[] GetBytes(this BigInteger value)
+        {
+            return value.ToByteArray().Reverse();
+        }
 
 
 
