@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp2.1;netstandard2.0;net461</TargetFrameworks>
+    <Version>0.18.11.20</Version>
+    <Authors>Dmitry Tarasov</Authors>
+    <Company>Bitsum Foundation</Company>
+    <Description>.NET Implementation of eos.io</Description>
+    <Copyright>Copyright (C) Dmitry Tarasov, 2018</Copyright>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>eos</PackageTags>
+    <PackageProjectUrl>https://github.com/BitsumFoundation/NEos</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/BitsumFoundation/NEos.git</RepositoryUrl>
+  </PropertyGroup>
+
+</Project>
