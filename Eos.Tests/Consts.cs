@@ -1,4 +1,4 @@
-﻿namespace NEos.Tests
+﻿namespace Eos.Tests
 {
     public static class Consts
     {

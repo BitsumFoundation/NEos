@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace NEos.Tests
+namespace Eos.Tests
 {
     using Cryptography;
     using System.Diagnostics;

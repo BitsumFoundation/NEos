@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Numerics;
 
-namespace NEos.Cryptography
+namespace Eos.Cryptography
 {
     public static class Base58
     {

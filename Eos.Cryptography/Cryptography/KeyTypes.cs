@@ -1,4 +1,4 @@
-﻿namespace NEos.Cryptography
+﻿namespace Eos.Cryptography
 {
     public enum KeyTypes
     {

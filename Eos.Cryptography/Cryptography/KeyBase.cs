@@ -3,7 +3,7 @@ using System.Numerics;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace NEos.Cryptography
+namespace Eos.Cryptography
 {
     public abstract class KeyBase
     {

@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Numerics;
 
-namespace NEos.Cryptography
+namespace Eos.Cryptography
 {
     public class EllipticCurve
     {

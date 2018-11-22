@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NEos.Cryptography
+namespace Eos.Cryptography
 {
     public static class RIPEMD160
     {

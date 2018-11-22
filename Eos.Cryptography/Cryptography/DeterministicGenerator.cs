@@ -1,7 +1,7 @@
 ﻿using System.Numerics;
 using System.Security.Cryptography;
 
-namespace NEos.Cryptography
+namespace Eos.Cryptography
 {
     public class DeterministicGenerator
     {

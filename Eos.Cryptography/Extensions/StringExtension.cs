@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NEos
+namespace Eos
 {
     using Cryptography;
 

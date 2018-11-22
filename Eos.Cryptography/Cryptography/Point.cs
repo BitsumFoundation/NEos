@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 
-namespace NEos.Cryptography
+namespace Eos.Cryptography
 {
     public class Point
     {

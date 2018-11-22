@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Numerics;
 
-namespace NEos
+namespace Eos
 {
     using Cryptography;
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Numerics;
 
-namespace NEos.Cryptography
+namespace Eos.Cryptography
 {
     public struct Signature
     {

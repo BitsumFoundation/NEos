@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
 
-namespace NEos
+namespace Eos
 {
     public static class BigIntegerExtension
     {
