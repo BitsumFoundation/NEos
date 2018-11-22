@@ -1,4 +1,8 @@
-﻿namespace NEos.Cryptography
+﻿using System;
+using System.Numerics;
+using System.Security.Cryptography;
+
+namespace NEos.Cryptography
 {
     public class PublicKey : KeyBase
     {
@@ -39,11 +43,80 @@
                 KeyType = KeyTypes.K1;
                 FromK1Key(false);
             }
+
+            Q = Point.FromX(Value.ToInt256(1), Value[0] == 3, Curve);
         }
 
         public override int Length => 33;
 
         public Point Q { get; set; }
 
+        public bool VerifySignature(string chainId, string data, string signature)
+        {
+            if (!signature.StartsWith(Signature.K1Prefix) && !signature.StartsWith(Signature.R1Prefix))
+            {
+                return false;
+            }
+
+            byte[] buf = Base58.Decode(signature.Substring(Signature.PrefixLength));
+
+            if (buf.Length != Signature.Length + ChecksumLength)
+            {
+                return false;
+            }
+
+            byte[] signatureBuf = new byte[buf.Length - ChecksumLength];
+            Array.Copy(buf, 0, signatureBuf, 0, Signature.Length);
+
+            byte[] checksum;
+
+            if (signature.StartsWith(Signature.R1Prefix))
+            {
+                checksum = RIPEMD160.ComputeHash(signatureBuf.Concat(R1Salt)).TakePart(0, 4);
+            }
+            else
+            {
+                checksum = RIPEMD160.ComputeHash(signatureBuf.Concat(K1Salt)).TakePart(0, 4);
+            }
+
+            if (!CheckChecksum(buf, checksum))
+            {
+                return false;
+            }
+
+            byte[] chainIdBuf = chainId.FromHex();
+            byte[] dataBuf = data.FromHex();
+
+            buf = chainIdBuf.Concat(dataBuf, new byte[32]);
+
+            byte[] hash;
+
+            using (SHA256 sha = SHA256.Create())
+            {
+                hash = sha.ComputeHash(buf, 0, buf.Length);
+            }
+
+            int recoveryId = signatureBuf[0] - 31;
+            BigInteger r = signatureBuf.ToInt256(1);
+            BigInteger s = signatureBuf.ToInt256(33);
+
+            var q = RecoverPublicKey(hash, r, s, recoveryId, Curve);
+
+            if (q.X.Value != Q.X.Value && q.Y.Value != Q.Y.Value)
+            {
+                return false;
+            }
+
+            if (r.Sign < 1 || s.Sign < 1 || r.CompareTo(Curve.N) >= 0 || s.CompareTo(Curve.N) >= 0) return false;
+
+            BigInteger e = hash.ToInt256();
+            BigInteger c = s.ModInverse(Curve.N);
+            BigInteger u1 = (e * c).Mod(Curve.N);
+            BigInteger u2 = (r * c).Mod(Curve.N);
+            Point R = Curve.G.MultiplyTwo(u1, q, u2);
+            BigInteger v = R.X.Value.Mod(Curve.N);
+
+            return v.Equals(r);
+        }
     }
 }

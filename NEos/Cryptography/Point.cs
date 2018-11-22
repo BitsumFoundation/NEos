@@ -208,6 +208,23 @@ namespace NEos.Cryptography
             return r;
         }
 
+        public static Point FromX(BigInteger x, bool isOdd, EllipticCurve curve)
+        {
+            var pOverFour = curve.Q + BigInteger.One >> 2;
+            var alpha = (BigInteger.Pow(x, 3) + curve.A.Value * x + curve.B.Value).Mod(curve.Q);
+            var beta = BigInteger.ModPow(alpha, pOverFour, curve.Q);
+
+            var y = beta;
+            if (beta.IsEven ^ !isOdd)
+            {
+                y = curve.Q - y;
+            }
+
+            return new Point(new Field(x, curve), new Field(y, curve), curve);
+        }
+
+
+
         private static sbyte[] WindowNaf(sbyte width, BigInteger k)
         {
             sbyte[] wnaf = new sbyte[k.GetBitCount() + 1];

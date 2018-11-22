@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -9,13 +10,8 @@ namespace NEos.Cryptography
         public const string K1PublicPrefix = "EOS";
         public const string R1PPublicPrefix = "PUB_R1_";
         public const string R1PrivatePrefix = "PVT_R1_";
-        public const string K1SignaturePrefix = "SIG_K1_";
-        public const string R1SignaturePrefix = "SIG_R1_";
 
         protected const int ChecksumLength = 4;
-        protected const int SignatureLength = 65;
-        protected const int SignaturePrefixLength = 7;
-
         protected static readonly byte[] K1Salt = Encoding.UTF8.GetBytes("K1");
         protected static readonly byte[] R1Salt = Encoding.UTF8.GetBytes("R1");
 
@@ -180,6 +176,23 @@ namespace NEos.Cryptography
             }
 
             return true;
+        }
+
+        protected static Point RecoverPublicKey(byte[] hash, BigInteger r, BigInteger s, int recoveryId, EllipticCurve curve)
+        {
+            var isYOdd = recoveryId & 1;
+            var isSecondKey = recoveryId >> 1;
+            var x = isSecondKey != 0 ? r + curve.N : r;
+
+            var R = Point.FromX(x, isYOdd != 0, EllipticCurve.SECP256K1);
+            var nR = R * curve.N;
+
+            var eNeg = BigInteger.Negate(hash.ToInt256()).Mod(curve.N);
+            var rInv = r.ModInverse(curve.N);
+
+            var q = R.MultiplyTwo(s, curve.G, eNeg) * rInv;
+
+            return q;
         }
     }
 }
