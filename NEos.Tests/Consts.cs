@@ -13,5 +13,9 @@
         public const string R1PrivateKey = "PVT_R1_2cvMwNJCPhkt9yvEQtPFpK8KTyuNZ8mhWdSUBCdTqhZEeXdVe8";
 
         public const string R1PublicKey = "PUB_R1_7owzePUJWDuSnpUUFo22w2D3oJYHfauTxk8ib6HECMgjooqQws";
+
+        public const string JunglePrivateKey = "5JYUJJCiDEKy9JeVYDgqygEskdzx6B6RiaXzUSydDrM3osGMUGR";
+
+        public const string JunglePublicKey = "EOS5KcMqNEVmEBeEwhSxmFcqwDv8AQFZxE2C5SweACEDUCjnp3vGk";
     }
 }
