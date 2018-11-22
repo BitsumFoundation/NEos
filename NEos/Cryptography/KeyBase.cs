@@ -178,7 +178,7 @@ namespace NEos.Cryptography
             return true;
         }
 
-        protected static Point RecoverPublicKey(byte[] hash, BigInteger r, BigInteger s, int recoveryId, EllipticCurve curve)
+        protected static Point RecoverPublicKey(byte[] hash, BigInteger r, BigInteger s, byte recoveryId, EllipticCurve curve)
         {
             var isYOdd = recoveryId & 1;
             var isSecondKey = recoveryId >> 1;

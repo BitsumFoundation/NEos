@@ -51,7 +51,7 @@ namespace NEos.Cryptography
 
         public Point Q { get; set; }
 
-        public bool VerifySignature(string chainId, string data, string signature)
+        public bool VerifySignature(byte[] data, string signature)
         {
             if (!signature.StartsWith(Signature.K1Prefix) && !signature.StartsWith(Signature.R1Prefix))
             {
@@ -84,19 +84,14 @@ namespace NEos.Cryptography
                 return false;
             }
 
-            byte[] chainIdBuf = chainId.FromHex();
-            byte[] dataBuf = data.FromHex();
-
-            buf = chainIdBuf.Concat(dataBuf, new byte[32]);
-
             byte[] hash;
 
             using (SHA256 sha = SHA256.Create())
             {
-                hash = sha.ComputeHash(buf, 0, buf.Length);
+                hash = sha.ComputeHash(data, 0, data.Length);
             }
 
-            int recoveryId = signatureBuf[0] - 31;
+            byte recoveryId = (byte)(signatureBuf[0] - 31);
             BigInteger r = signatureBuf.ToInt256(1);
             BigInteger s = signatureBuf.ToInt256(33);
 
@@ -117,6 +112,16 @@ namespace NEos.Cryptography
             BigInteger v = R.X.Value.Mod(Curve.N);
 
             return v.Equals(r);
+        }
+
+        public bool VerifySignature(string chainId, string data, string signature)
+        {
+            byte[] chainIdBuf = chainId.FromHex();
+            byte[] dataBuf = data.FromHex();
+
+            byte[] buf = chainIdBuf.Concat(dataBuf, new byte[32]);
+
+            return VerifySignature(buf, signature);
         }
     }
 }
