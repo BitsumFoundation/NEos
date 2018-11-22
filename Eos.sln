@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NEos", "NEos\NEos.csproj", "{20D3F443-CE0E-4CCD-9819-C770029B8313}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eos.Cryptography", "Eos.Cryptography\Eos.Cryptography.csproj", "{20D3F443-CE0E-4CCD-9819-C770029B8313}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NEos.Tests", "NEos.Tests\NEos.Tests.csproj", "{7545F019-2E70-4D0C-98EC-A389925B1219}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eos.Tests", "Eos.Tests\Eos.Tests.csproj", "{7545F019-2E70-4D0C-98EC-A389925B1219}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

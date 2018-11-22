@@ -5,7 +5,7 @@
     <Version>0.18.11.22</Version>
     <Authors>Dmitry Tarasov</Authors>
     <Company>Bitsum Foundation</Company>
-    <Description>.NET Implementation of eos.io
+    <Description>.NET Implementation of Elliptic Cryptography for eos.io
 
 Features:
 - Generating K1 or R1 keys;
@@ -13,7 +13,7 @@ Features:
 - Verifying signature;</Description>
     <Copyright>Copyright (C) Dmitry Tarasov, 2018</Copyright>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>eos, eosio</PackageTags>
+    <PackageTags>eos, eosio, cryptography</PackageTags>
     <PackageProjectUrl>https://github.com/BitsumFoundation/NEos</PackageProjectUrl>
     <RepositoryUrl>https://github.com/BitsumFoundation/NEos.git</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -21,7 +21,12 @@ Features:
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Core\" />
+    <Compile Remove="Core\**" />
+    <EmbeddedResource Remove="Core\**" />
+    <None Remove="Core\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="Exceptions\" />
   </ItemGroup>
