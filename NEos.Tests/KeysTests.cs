@@ -55,5 +55,18 @@ namespace NEos.Tests
 
             Assert.AreEqual(pub.Value.ToHex(), pub_import.Value.ToHex());
         }
+
+        [TestMethod]
+        public void VerifyK1Signature()
+        {
+            string signature = "SIG_K1_KBW1jH37snqxqp35mqcCDD2bPiUXrGhBp23eSjhLdzgGKn9DeGkkmv4ZZidZ5ju5mpijkZ1fdQv4zs9myt2MPgpimgKWpT";
+            string data = "bc9bea5bda2907ca858500000000019028530df99b9d4c000000572d3ccdcd019028530df99b9d4c00000000a8ed3232219028530df99b9d4ca05872f7488db33b01000000000000000242534d000000000000";
+
+            PublicKey pub = new PublicKey("EOS5KcMqNEVmEBeEwhSxmFcqwDv8AQFZxE2C5SweACEDUCjnp3vGk");
+
+            bool actual = pub.VerifySignature(JungleChainId, data, signature);
+
+            Assert.IsTrue(actual);
+        }
     }
 }
