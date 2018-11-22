@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <Folder Include="Core\" />
-    <Folder Include="Cryptography\" />
     <Folder Include="Extensions\" />
     <Folder Include="Exceptions\" />
   </ItemGroup>
