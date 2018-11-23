@@ -17,5 +17,7 @@
         public const string JunglePrivateKey = "5JYUJJCiDEKy9JeVYDgqygEskdzx6B6RiaXzUSydDrM3osGMUGR";
 
         public const string JunglePublicKey = "EOS5KcMqNEVmEBeEwhSxmFcqwDv8AQFZxE2C5SweACEDUCjnp3vGk";
+
+        public const string AccountName = "dmitrychegod";
     }
 }

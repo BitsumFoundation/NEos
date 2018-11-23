@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{0D20
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptographySample", "Samples\CryptographySample\CryptographySample.csproj", "{EC0BF36B-D18B-469C-8AA9-DB9040E14B24}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eos.Api", "Eos.Api\Eos.Api.csproj", "{337EEAD5-5830-4D68-88C1-398DE6952293}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{EC0BF36B-D18B-469C-8AA9-DB9040E14B24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC0BF36B-D18B-469C-8AA9-DB9040E14B24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC0BF36B-D18B-469C-8AA9-DB9040E14B24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{337EEAD5-5830-4D68-88C1-398DE6952293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{337EEAD5-5830-4D68-88C1-398DE6952293}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{337EEAD5-5830-4D68-88C1-398DE6952293}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{337EEAD5-5830-4D68-88C1-398DE6952293}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

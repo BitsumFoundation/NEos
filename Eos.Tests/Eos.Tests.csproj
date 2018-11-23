@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Eos.Api\Eos.Api.csproj" />
     <ProjectReference Include="..\Eos.Cryptography\Eos.Cryptography.csproj" />
   </ItemGroup>
 
