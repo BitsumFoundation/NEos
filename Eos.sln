@@ -15,6 +15,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "keygen", "Tools\keygen\keyg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "keygen", "Tools\Windows\keygen\keygen.csproj", "{EA614314-DE60-451C-8E3C-1C6F04F266E7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{954321EB-74DD-42DB-9DDA-52BC44DBABED}"
+	ProjectSection(SolutionItems) = preProject
+		Eos.png = Eos.png
+		Eos.Small.png = Eos.Small.png
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{0D201737-D387-4FD9-919E-F665BB2DD2B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptographySample", "Samples\CryptographySample\CryptographySample.csproj", "{EC0BF36B-D18B-469C-8AA9-DB9040E14B24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +49,10 @@ Global
 		{EA614314-DE60-451C-8E3C-1C6F04F266E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA614314-DE60-451C-8E3C-1C6F04F266E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA614314-DE60-451C-8E3C-1C6F04F266E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC0BF36B-D18B-469C-8AA9-DB9040E14B24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC0BF36B-D18B-469C-8AA9-DB9040E14B24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC0BF36B-D18B-469C-8AA9-DB9040E14B24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC0BF36B-D18B-469C-8AA9-DB9040E14B24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +61,7 @@ Global
 		{4758C543-7C9D-43A4-8086-BDB9D934CDF4} = {CA0A6148-61E8-45EF-A81C-2779C44D60EE}
 		{8F9E034B-5136-413A-8478-9E00F404C06B} = {CA0A6148-61E8-45EF-A81C-2779C44D60EE}
 		{EA614314-DE60-451C-8E3C-1C6F04F266E7} = {4758C543-7C9D-43A4-8086-BDB9D934CDF4}
+		{EC0BF36B-D18B-469C-8AA9-DB9040E14B24} = {0D201737-D387-4FD9-919E-F665BB2DD2B1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DE5862AF-4E7B-44D0-A17D-A83C77C9DC1C}
