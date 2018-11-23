@@ -5,7 +5,7 @@
         public KeyPair(KeyTypes keyType)
         {
             KeyType = keyType;
-            PrivateKey = new PrivateKey();
+            PrivateKey = new PrivateKey(keyType);
             PublicKey = new PublicKey(PrivateKey);
         }
 
