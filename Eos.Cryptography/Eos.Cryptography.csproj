@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp2.1;netstandard2.0;net461</TargetFrameworks>
-    <Version>1.18.11.22</Version>
+    <Version>1.18.11.23</Version>
     <Authors>Dmitry Tarasov</Authors>
     <Company>Bitsum Foundation</Company>
     <Description>.NET Implementation of Elliptic Cryptography for eos.io
@@ -17,7 +17,7 @@ Features:
     <PackageProjectUrl>https://github.com/BitsumFoundation/NEos</PackageProjectUrl>
     <RepositoryUrl>https://github.com/BitsumFoundation/NEos.git</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageIconUrl>https://github.com/BitsumFoundation/NEos/raw/master/eos.png</PackageIconUrl>
+    <PackageIconUrl>https://github.com/BitsumFoundation/NEos/raw/master/Eos.png</PackageIconUrl>
     <PackageLicenseUrl>https://github.com/BitsumFoundation/NEos/raw/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
