@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp2.1;netstandard2.0</TargetFrameworks>
+    <Version>0.0.0.1</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Dmitry Tarasov</Authors>
+    <Company>Bitsum Foundation</Company>
+    <Copyright>Copyright (C) Dmitry Tarasov, 2018</Copyright>
+    <PackageLicenseUrl>https://github.com/BitsumFoundation/NEos/raw/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/BitsumFoundation/NEos</PackageProjectUrl>
+    <PackageIconUrl>https://github.com/BitsumFoundation/NEos/raw/master/Eos.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/BitsumFoundation/NEos.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>eos, eosio, api</PackageTags>
+    <RootNamespace>Eos</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Api\Chain\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+</Project>
