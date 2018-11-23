@@ -4,6 +4,7 @@
 |   Library   |   Version   |   Downloads   |
 |---------|:----------:|:----------:|
 |   **Eos.Cryptography**        | [![NuGet](https://img.shields.io/nuget/v/Eos.Cryptography.svg)](https://www.nuget.org/packages/Eos.Cryptography)|[![NuGet](https://img.shields.io/nuget/dt/Eos.Cryptography.svg)](https://www.nuget.org/packages/Eos.Cryptography)|
+|   **Eos.Api**        | [![NuGet](https://img.shields.io/nuget/v/Eos.Api.svg)](https://www.nuget.org/packages/Eos.Api)|[![NuGet](https://img.shields.io/nuget/dt/Eos.Api.svg)](https://www.nuget.org/packages/Eos.Api)|
 
 ### How to use:
 
