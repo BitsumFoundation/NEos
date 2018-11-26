@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp2.1;netstandard2.0;net461</TargetFrameworks>
-    <Version>1.18.11.23</Version>
+    <Version>1.18.11.26</Version>
     <Authors>Dmitry Tarasov</Authors>
     <Company>Bitsum Foundation</Company>
     <Description>.NET Implementation of Elliptic Cryptography for eos.io
