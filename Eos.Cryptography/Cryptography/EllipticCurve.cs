@@ -8,7 +8,6 @@ namespace Eos.Cryptography
         static EllipticCurve()
         {
             BigInteger q, a, b, n;
-            byte[] g;
 
             q = BigInteger.Parse("00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFFFFFC2F", NumberStyles.AllowHexSpecifier);
             a = BigInteger.Zero;
