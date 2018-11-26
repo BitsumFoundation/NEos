@@ -14,9 +14,9 @@
 
         public const string R1PublicKey = "PUB_R1_7owzePUJWDuSnpUUFo22w2D3oJYHfauTxk8ib6HECMgjooqQws";
 
-        public const string JunglePrivateKey = "5JYUJJCiDEKy9JeVYDgqygEskdzx6B6RiaXzUSydDrM3osGMUGR";
+        public const string JunglePrivateKey = "5KUht5PmugQNP716VVVusEghr1TQHwkzSvtbBwQtXqv8K9Lz1nP";
 
-        public const string JunglePublicKey = "EOS5KcMqNEVmEBeEwhSxmFcqwDv8AQFZxE2C5SweACEDUCjnp3vGk";
+        public const string JunglePublicKey = "EOS6u4xFrstKYP3JeCiK2jad8ofwy6CwGQiXeYrhL7HVYcam7NkjA";
 
         public const string AccountName = "dmitrychegod";
     }
