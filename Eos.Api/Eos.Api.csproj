@@ -17,10 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Api\Chain\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="Eos.Cryptography" Version="1.18.11.26" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
 

@@ -2,6 +2,8 @@
 
 namespace Eos.Api.Chain
 {
+    using Models;
+
     internal class CurrencyStatsRequest
     {
         [JsonProperty("code")]
