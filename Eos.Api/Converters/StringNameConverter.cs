@@ -5,7 +5,7 @@ namespace Eos
 {
     using Models;
 
-    internal class StringCurrencyConverter : JsonConverter
+    internal class StringNameConverter : JsonConverter
     {
         public override bool CanRead => true;
 
@@ -18,7 +18,7 @@ namespace Eos
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            return new Currency(reader.Value.ToString());
+            return new Name(reader.Value.ToString());
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
