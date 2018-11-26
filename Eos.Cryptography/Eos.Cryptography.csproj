@@ -19,6 +19,7 @@ Features:
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageIconUrl>https://github.com/BitsumFoundation/NEos/raw/master/Eos.png</PackageIconUrl>
     <PackageLicenseUrl>https://github.com/BitsumFoundation/NEos/raw/master/LICENSE</PackageLicenseUrl>
+    <RootNamespace>Eos</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
