@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp2.1;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.1;netstandard2.0;net461</TargetFrameworks>
     <Version>0.18.11.26</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Dmitry Tarasov</Authors>
@@ -17,9 +17,17 @@
     <Description>Library for interacting with eos.io nodes.</Description>
   </PropertyGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)'=='net461'">
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Eos.Cryptography" Version="1.18.11.26" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Eos.Cryptography\Eos.Cryptography.csproj" />
   </ItemGroup>
 
 </Project>
