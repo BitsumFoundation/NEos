@@ -31,6 +31,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eos.Api", "Eos.Api\Eos.Api.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NodeApiSample", "Samples\NodeApiSample\NodeApiSample.csproj", "{730FE1BE-D7A7-41A4-856B-566E88CCEE80}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "simplewallet", "Tools\simplewallet\simplewallet.csproj", "{F4F6E364-A78F-445A-82EA-E10B8FC3DE8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "simplewallet", "Tools\Windows\simplewallet\simplewallet.csproj", "{E1AF0180-F17A-419C-A94C-F2E177851A59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +69,14 @@ Global
 		{730FE1BE-D7A7-41A4-856B-566E88CCEE80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{730FE1BE-D7A7-41A4-856B-566E88CCEE80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{730FE1BE-D7A7-41A4-856B-566E88CCEE80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4F6E364-A78F-445A-82EA-E10B8FC3DE8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4F6E364-A78F-445A-82EA-E10B8FC3DE8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4F6E364-A78F-445A-82EA-E10B8FC3DE8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4F6E364-A78F-445A-82EA-E10B8FC3DE8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1AF0180-F17A-419C-A94C-F2E177851A59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1AF0180-F17A-419C-A94C-F2E177851A59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1AF0180-F17A-419C-A94C-F2E177851A59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1AF0180-F17A-419C-A94C-F2E177851A59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +87,8 @@ Global
 		{EA614314-DE60-451C-8E3C-1C6F04F266E7} = {4758C543-7C9D-43A4-8086-BDB9D934CDF4}
 		{EC0BF36B-D18B-469C-8AA9-DB9040E14B24} = {0D201737-D387-4FD9-919E-F665BB2DD2B1}
 		{730FE1BE-D7A7-41A4-856B-566E88CCEE80} = {0D201737-D387-4FD9-919E-F665BB2DD2B1}
+		{F4F6E364-A78F-445A-82EA-E10B8FC3DE8C} = {CA0A6148-61E8-45EF-A81C-2779C44D60EE}
+		{E1AF0180-F17A-419C-A94C-F2E177851A59} = {4758C543-7C9D-43A4-8086-BDB9D934CDF4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DE5862AF-4E7B-44D0-A17D-A83C77C9DC1C}
