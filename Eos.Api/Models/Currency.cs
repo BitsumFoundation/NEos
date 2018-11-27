@@ -11,7 +11,14 @@ namespace Eos.Models
         {
             var parts = value.Split(' ');
             Amount = decimal.Parse(parts[0]);
-            Ticker = parts[1];
+            if (parts.Length == 2)
+            {
+                Ticker = parts[1];
+            }
+            else
+            {
+                Ticker = "EOS";
+            }
         }
 
         public decimal Amount { get; set; }
@@ -20,7 +27,7 @@ namespace Eos.Models
 
         public override string ToString()
         {
-            return $"{Amount} {Ticker}";
+            return $"{Amount:0.0000} {Ticker}";
         }
     }
 }
