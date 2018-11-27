@@ -7,14 +7,10 @@ namespace Eos.Api
         [JsonProperty("code")]
         public int Code { get; set; }
 
-        [JsonProperty("message")]
-        public string Message { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
 
-        [JsonProperty("error")]
-        public ApiErrorEx Error { get; set; }
-    }
-
-    public class ApiErrorEx
-    {
+        [JsonProperty("what")]
+        public string What { get; set; }
     }
 }

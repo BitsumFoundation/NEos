@@ -207,10 +207,10 @@ namespace Eos.Api
                 response = await (await httpClient.SendAsync(req)).Content.ReadAsStringAsync();
             }
 
-            var error = JsonConvert.DeserializeObject<ApiError>(response);
-            if (error.Error != null)
+            if (response.Contains("{\"code\":") && response.Contains(",\"message\":") && response.Contains(",\"error\":"))
             {
-                throw new ApiException(error);
+                var error = JsonConvert.DeserializeObject<ApiException>(response);
+                throw error;
             }
 
             T res = JsonConvert.DeserializeObject<T>(response);
@@ -235,11 +235,11 @@ namespace Eos.Api
                 response = await (await httpClient.SendAsync(req)).Content.ReadAsStringAsync();
             }
 
-            //var error = JsonConvert.DeserializeObject<ApiError>(response);
-            //if (error.Code != 0)
-            //{
-            //    throw new ApiException(error);
-            //}
+            if (response.Contains("{\"code\":") && response.Contains(",\"message\":") && response.Contains(",\"error\":"))
+            {
+                var error = JsonConvert.DeserializeObject<ApiException>(response);
+                throw error;
+            }
 
             T res = JsonConvert.DeserializeObject<T>(response);
             if (res != null) return res;
