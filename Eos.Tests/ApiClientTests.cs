@@ -128,5 +128,126 @@ namespace Eos.Tests
             var txid = client.PushTransaction(stx).Result;
             Trace.WriteLine($"\nTX Hash: {txid}");
         }
+
+        [TestMethod]
+        public void BuyRamTest()
+        {
+            BuyRamAction a = new BuyRamAction()
+            {
+                Data = new BuyRamData()
+                {
+                    Payer = "dmitrychegod",
+                    Receiver = "dmitrychegod",
+                    Bytes = 100
+                }
+            };
+
+            a.Authorization = new List<Authorization>()
+            {
+                new Authorization()
+                {
+                    Actor = "dmitrychegod",
+                    Permission = "active"
+                }
+            };
+
+            var actions = new List<IAction>
+            {
+                a
+            };
+
+            PrivateKey pvt = new PrivateKey(JunglePrivateKey);
+
+            var tx = client.CreateTransaction(actions).Result;
+            Trace.WriteLine(tx.ToJson());
+
+            var stx = client.SignTransaction(tx, pvt).Result;
+            Trace.WriteLine(stx.ToJson());
+
+            var txid = client.PushTransaction(stx).Result;
+            Trace.WriteLine($"\nTX Hash: {txid}");
+        }
+
+        [TestMethod]
+        public void StakeTest()
+        {
+            StakeAction a = new StakeAction()
+            {
+                Data = new StakeData()
+                {
+                    From = "dmitrychegod",
+                    Receiver = "dmitrychegod",
+                    Net = 1,
+                    Cpu = 1,
+                    Transfer = false
+                }
+            };
+
+            a.Authorization = new List<Authorization>()
+            {
+                new Authorization()
+                {
+                    Actor = "dmitrychegod",
+                    Permission = "active"
+                }
+            };
+
+            var actions = new List<IAction>
+            {
+                a
+            };
+
+            PrivateKey pvt = new PrivateKey(JunglePrivateKey);
+
+            var tx = client.CreateTransaction(actions).Result;
+            Trace.WriteLine(tx.ToJson());
+
+            var stx = client.SignTransaction(tx, pvt).Result;
+            Trace.WriteLine(stx.ToJson());
+
+            var txid = client.PushTransaction(stx).Result;
+            Trace.WriteLine($"\nTX Hash: {txid}");
+        }
+
+        [TestMethod]
+        public void UnstakeTest()
+        {
+            UnstakeAction a = new UnstakeAction()
+            {
+                Data = new UnstakeData()
+                {
+                    From = "dmitrychegod",
+                    Receiver = "dmitrychegod",
+                    Net = 1,
+                    Cpu = 1,
+                    Transfer = false
+                }
+            };
+
+            a.Authorization = new List<Authorization>()
+            {
+                new Authorization()
+                {
+                    Actor = "dmitrychegod",
+                    Permission = "active"
+                }
+            };
+
+            var actions = new List<IAction>
+            {
+                a
+            };
+
+            PrivateKey pvt = new PrivateKey(JunglePrivateKey);
+
+            var tx = client.CreateTransaction(actions).Result;
+            Trace.WriteLine(tx.ToJson());
+
+            var stx = client.SignTransaction(tx, pvt).Result;
+            Trace.WriteLine(stx.ToJson());
+
+            var txid = client.PushTransaction(stx).Result;
+            Trace.WriteLine($"\nTX Hash: {txid}");
+        }
     }
 }
