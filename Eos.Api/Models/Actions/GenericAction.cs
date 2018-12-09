@@ -5,7 +5,7 @@ namespace Eos.Models
 {
     public class GenericAction : IAction
     {
-        public Name Account { get; set; }
+        public virtual Name Account { get; set; }
 
         public virtual Name Name { get; set; }
 
