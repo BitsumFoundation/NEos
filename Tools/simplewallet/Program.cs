@@ -13,7 +13,11 @@ namespace simplewallet
             $"exit: Terminates the application\n" +
             $"info: Shows info about your account\n" +
             $"balance: Shows your balance\n" +
-            $"transfer [account] [amount]: Transfers coins";
+            $"transfer [account] [amount]: Transfers coins\n" +
+            $"buyram [number of bytes]: Buy RAM bytes\n" +
+            $"stake [CPU] [NET]: Stake some EOS into CPU/NET\n" +
+            $"unstake [CPU] [NET]: Unstake resources\n" +
+            $"newaccount [account name]: Create new account";
 
         static KeyPair keyPair;
         static NodeApiClient node;
@@ -122,6 +126,208 @@ namespace simplewallet
                         var hash = node.PushTransaction(stx).Result;
 
                         Console.WriteLine($"TX Hash: {hash}");
+                    }
+
+                    if (cmd.Contains("buyram"))
+                    {
+                        cmd = cmd.Replace("buyram ", "");
+                        int numBytes = int.Parse(cmd);
+
+                        BuyRamAction action = new BuyRamAction()
+                        {
+                            Data = new BuyRamData()
+                            {
+                                Payer = account,
+                                Receiver = account,
+                                Bytes = numBytes
+                            },
+                            Authorization = new List<Authorization>()
+                            {
+                                new Authorization()
+                                {
+                                    Actor = account,
+                                    Permission = "active"
+                                }
+                            }
+                        };
+
+                        var actions = new List<IAction>()
+                        {
+                            action
+                        };
+
+                        var tx = node.CreateTransaction(actions).Result;
+                        var stx = node.SignTransaction(tx, keyPair.PrivateKey).Result;
+                        var hash = node.PushTransaction(stx).Result;
+
+                        Console.WriteLine($"TX Hash: {hash}");
+                    }
+
+                    if (cmd.Contains("stake") && !cmd.Contains("unstake"))
+                    {
+                        cmd = cmd.Replace("stake ", "");
+                        var values = cmd.Split(' ');
+                        double cpu = double.Parse(values[0]);
+                        double net = double.Parse(values[1]);
+
+                        StakeAction action = new StakeAction()
+                        {
+                            Data = new StakeData()
+                            {
+                                From = account,
+                                Receiver = account,
+                                Net = net,
+                                Cpu = cpu,
+                                Transfer = false
+                            },
+                            Authorization = new List<Authorization>()
+                            {
+                                new Authorization()
+                                {
+                                    Actor = account,
+                                    Permission = "active"
+                                }
+                            }
+                        };
+
+                        var actions = new List<IAction>()
+                        {
+                            action
+                        };
+
+                        var tx = node.CreateTransaction(actions).Result;
+                        var stx = node.SignTransaction(tx, keyPair.PrivateKey).Result;
+                        var hash = node.PushTransaction(stx).Result;
+
+                        Console.WriteLine($"TX Hash: {hash}");
+                    }
+
+                    if (cmd.Contains("unstake"))
+                    {
+                        cmd = cmd.Replace("unstake ", "");
+                        var values = cmd.Split(' ');
+                        double cpu = double.Parse(values[0]);
+                        double net = double.Parse(values[1]);
+
+                        UnstakeAction action = new UnstakeAction()
+                        {
+                            Data = new UnstakeData()
+                            {
+                                From = account,
+                                Receiver = account,
+                                Net = net,
+                                Cpu = cpu,
+                                Transfer = false
+                            },
+                            Authorization = new List<Authorization>()
+                            {
+                                new Authorization()
+                                {
+                                    Actor = account,
+                                    Permission = "active"
+                                }
+                            }
+                        };
+
+                        var actions = new List<IAction>()
+                        {
+                            action
+                        };
+
+                        var tx = node.CreateTransaction(actions).Result;
+                        var stx = node.SignTransaction(tx, keyPair.PrivateKey).Result;
+                        var hash = node.PushTransaction(stx).Result;
+
+                        Console.WriteLine($"TX Hash: {hash}");
+                    }
+
+                    if (cmd.Contains("newaccount"))
+                    {
+                        var newAccount = cmd.Replace("newaccount ", "");
+
+                        KeyPair owner = new KeyPair(KeyTypes.K1);
+                        KeyPair active = new KeyPair(KeyTypes.K1);
+
+                        NewAccountAction newAccountAction = new NewAccountAction()
+                        {
+                            Data = new NewAccountData()
+                            {
+                                Creator = account,
+                                Name = newAccount,
+                                Owner = new Authority()
+                                {
+                                    Threshold = 1,
+                                    Keys = new List<AuthorityKey>()
+                                    {
+                                        new AuthorityKey()
+                                        {
+                                            Key = owner.PublicKey,
+                                            Weight = 1
+                                        }
+                                    }
+                                },
+                                Active = new Authority()
+                                {
+                                    Threshold = 1,
+                                    Keys = new List<AuthorityKey>()
+                                    {
+                                        new AuthorityKey()
+                                        {
+                                            Key = active.PublicKey,
+                                            Weight = 1
+                                        }
+                                    }
+                                }
+                            },
+                            Authorization = new List<Authorization>()
+                            {
+                                new Authorization()
+                                {
+                                    Actor = account,
+                                    Permission = "active"
+                                }
+                            }
+                        };
+
+                        BuyRamAction buyRamAction = new BuyRamAction()
+                        {
+                            Data = new BuyRamData()
+                            {
+                                Payer = account,
+                                Receiver = newAccount,
+                                Bytes = 2600
+                            },
+                            Authorization = newAccountAction.Authorization
+                        };
+
+                        StakeAction stakeAction = new StakeAction()
+                        {
+                            Data = new StakeData()
+                            {
+                                From = account,
+                                Receiver = newAccount,
+                                Net = 0.1,
+                                Cpu = 0.1,
+                                Transfer = false
+                            },
+                            Authorization = newAccountAction.Authorization
+                        };
+
+                        var actions = new List<IAction>()
+                        {
+                            newAccountAction,
+                            buyRamAction,
+                            stakeAction
+                        };
+
+                        var tx = node.CreateTransaction(actions).Result;
+                        var stx = node.SignTransaction(tx, keyPair.PrivateKey).Result;
+                        var hash = node.PushTransaction(stx).Result;
+
+                        Console.WriteLine($"TX Hash: {hash}");
+                        Console.WriteLine($"Account: {newAccount}");
+                        Console.WriteLine($"#owner key pair:\n{owner.PrivateKey}\n{owner.PublicKey}\n" +
+                            $"#active key pair:\n{active.PrivateKey}\n{active.PublicKey}");
                     }
                 }
                 catch (Exception ex)
