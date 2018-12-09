@@ -25,6 +25,16 @@ namespace Eos.Models
 
         public string Ticker { get; set; }
 
+        public static implicit operator Currency(int value)
+        {
+            return new Currency(value.ToString());
+        }
+
+        public static implicit operator Currency(string value)
+        {
+            return new Currency(value);
+        }
+
         public override string ToString()
         {
             return $"{Amount:0.0000} {Ticker}";
