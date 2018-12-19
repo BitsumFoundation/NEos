@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netcoreapp2.1;netstandard2.0;net461</TargetFrameworks>
-    <Version>1.18.12.9</Version>
+    <Version>1.18.12.19</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Dmitry Tarasov</Authors>
     <Company>Bitsum Foundation</Company>
@@ -22,12 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Eos.Cryptography" Version="1.18.12.9" />
+    <PackageReference Include="Eos.Cryptography" Version="1.18.12.19" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Eos.Cryptography\Eos.Cryptography.csproj" />
   </ItemGroup>
 
 </Project>
