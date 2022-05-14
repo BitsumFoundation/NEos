@@ -252,6 +252,43 @@ namespace Eos.Tests
         }
 
         [TestMethod]
+        public void RefundTest()
+        {
+            RefundAction a = new RefundAction()
+            {
+                Data = new RefundData()
+                {
+                    Owner = "dmitrychegod"
+                }
+            };
+
+            a.Authorization = new List<Authorization>()
+            {
+                new Authorization()
+                {
+                    Actor = "dmitrychegod",
+                    Permission = "active"
+                }
+            };
+
+            var actions = new List<IAction>
+            {
+                a
+            };
+
+            PrivateKey pvt = new PrivateKey(JunglePrivateKey);
+
+            var tx = client.CreateTransaction(actions).Result;
+            Trace.WriteLine(tx.ToJson());
+
+            var stx = client.SignTransaction(tx, pvt).Result;
+            Trace.WriteLine(stx.ToJson());
+
+            var txid = client.PushTransaction(stx).Result;
+            Trace.WriteLine($"\nTX Hash: {txid}");
+        }
+
+        [TestMethod]
         public void CreateAccountTest()
         {
             string newAccount = "neostest1111";
