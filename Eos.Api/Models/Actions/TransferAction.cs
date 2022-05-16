@@ -19,6 +19,8 @@ namespace Eos.Models
 
     public class TransferAction : Action<TransferData>
     {
+        public override Name Account => "eosio.token";
+        
         public override Name Name => "transfer";
     }
 }
